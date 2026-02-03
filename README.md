@@ -21,3 +21,5 @@
 ![image](https://github.com/user-attachments/assets/de7dc734-4e20-4571-bb8d-4369699ef3b1)
 
 # 6
+
+<img width="393" height="58" alt="image" src="https://github.com/user-attachments/assets/69967ae1-1e2e-4635-bc91-ec1ae2486fe5" />
