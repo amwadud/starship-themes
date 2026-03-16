@@ -1,0 +1,148 @@
+#                            #
+# Starship Config by amwadud #
+#                            #
+
+palette = "gruvbox_material"
+
+format = """
+[╭─ $shell──$nix_shell───────────── $memory_usage ──╌╌ $nodejs$python$golang$ocaml $fill ╌╌─╮](bg3)
+[├╌](bg3)$sudo$username$hostname$localip$directory$read_only$git_branch$git_commit$git_metrics [$fill $cmd_duration ┘](bg3)
+[╰─ $battery $character](bg3) """
+
+scan_timeout = 10
+command_timeout = 500
+add_newline = true
+
+[palettes.gruvbox_material]
+
+bg0 = "#282828"
+bg1 = "#3c3836"
+bg2 = "#504945"
+bg3 = "#665c54"
+bg4 = "#7c6f64"
+
+fg0 = "#e2cca9"
+fg1 = "#d4be98"
+fg2 = "#c5b08e"
+fg3 = "#b09d7e"
+fg4 = "#a89984"
+gray = "#928374"
+
+red = "#ea6962"
+
+orange = "#e78a4e"
+yellow = "#d8a657"
+green = "#a9b665"
+aqua = "#89b482"
+blue = "#7daea3"
+purple = "#d3869b"
+
+[shell]
+fish_indicator = 'fish'
+bash_indicator = 'bash'
+unknown_indicator = 'unknwn'
+style = 'bold fg1'
+disabled = false
+
+[nix_shell]
+disabled = false
+impure_msg = '[\[impure\]](red)'
+pure_msg = '[\[pure\]](fg2)'
+unknown_msg = '[\[unknown\]](gray)'
+format = '╌╌ [$name](fg1)$state ╌╌'
+
+[username]
+style_user = 'bold fg1'
+format = ' [$user@]($style)'
+disabled = false
+show_always = true
+
+[sudo]
+format = ' [sudo](bold red)'
+disabled = false
+
+[python]
+symbol = ''
+format = '[Python](bold fg1) [$version](fg2)[ \($virtualenv\)](fg3) '
+pyenv_version_name = true
+detect_files = ['requirements.txt', '__init__.py', 'setup.py']
+detect_extensions = ['py']
+
+[nodejs]
+format = '[Node](bold fg1) [$version](fg2) '
+
+[golang]
+format = '[Go](bold fg1) [$version](fg2) '
+
+[ocaml]
+format = '[Ocaml](bold fg1) [$version](fg3) '
+
+[memory_usage]
+disabled = false
+threshold = -1
+format = '[$ram_pct]($style)'
+symbol = ''
+style = 'fg4'
+
+[localip]
+ssh_only = false
+format = '[@$localipv4](fg3) '
+disabled = false
+
+[hostname]
+ssh_only = false
+ssh_symbol = 'ssh:'
+format = '[$ssh_symbol](fg3)[$hostname](fg2)'
+trim_at = ''
+disabled = false
+
+[git_metrics]
+disabled = false
+format = ' [+${added}](fg2)[-${deleted}](red)'
+
+[git_branch]
+format = '[$branch(:$remote_branch)]($style)'
+style = 'bold fg1'
+
+[git_commit]
+format = ' [$tag](fg3)'
+tag_disabled = false
+tag_symbol = ''
+only_detached = false
+
+[fill]
+symbol = ' '
+style = 'bold bg0'
+
+[cmd_duration]
+min_time = 500
+format = ' [$duration](fg3)'
+
+[directory]
+fish_style_pwd_dir_length = 5
+disabled = false
+truncation_length = 5
+truncation_symbol = '…/'
+read_only = ' read-only'
+read_only_style = 'fg3'
+style = 'bold fg1'
+
+[character]
+success_symbol = '[──╌╌](bg3)'
+error_symbol = '[──╌╌](red)'
+
+[package]
+disabled = true
+
+[battery]
+full_symbol = '● '
+charging_symbol = '◉ '
+discharging_symbol = '◯ '
+
+[[battery.display]]
+threshold = 20
+style = 'red'
+
+[[battery.display]]
+threshold = 100
+style = 'fg2'
